@@ -106,5 +106,5 @@ Contributions are welcome! Fork the repository, submit a pull request, or open a
 ## 🧑‍💻 **Contact**  
 
 For any questions or inquiries, feel free to contact us via email at 
-[Taissir BOUZIDI](mailto:taysirbouzidi123@gmail.com).
-[Sofyen LAGHOUANEM](mailto:sofienlaghouanem@gmail.com).
+[Med Amine Jabou](mailto:jabou.medamine@gmail.com).
+[Med Taleb Mouelhi](mailto:mouelhi.medtaleb@gmail.com).

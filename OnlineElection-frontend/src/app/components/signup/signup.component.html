@@ -1,0 +1,74 @@
+<div class="relative min-h-screen bg-cover bg-center" style="background-image: url('assets/img.png');">
+  <div class="absolute inset-0 bg-black opacity-40"></div>
+
+  <div class="relative z-10 flex items-center justify-center min-h-screen">
+    <div class="bg-white/10 p-8 rounded-xl shadow-md w-full max-w-4xl backdrop-blur-sm border border-pink-500 text-white">
+      <div class="card justify-center">
+        <a routerLink="/">
+          <i class="fa-solid fa-arrow-left text-white absolute left-4 top-4 cursor-pointer text-2xl"></i>
+        </a>
+        <h2 class="text-4xl font-extrabold tracking-tighter text-center text-white">Create your account</h2>
+        <p class="text-center text-white">Write the necessary informations.</p>
+        <hr class="my-3">
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="col-span-1">
+              <div class="mb-4">
+                <label for="name" class="block text-sm font-medium text-white">Full Name:</label>
+                <input type="text" id="name" formControlName="name" required
+                  class="text-black mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-teal focus:border-teal sm:text-sm border-gray-300">
+                <p *ngIf="signupForm.get('name')?.errors && formSubmitted" class="text-yellow-300 text-sm mt-1">
+                  <span *ngIf="signupForm.get('name')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Full Name is required.</span>
+                  <span *ngIf="signupForm.get('name')?.errors?.['minlength']"><i class="fa-solid fa-triangle-exclamation"></i> Full Name must be at least 3 characters long.</span>
+                </p>
+              </div>
+              <div class="mb-4">
+                <label for="email" class="block text-sm font-medium text-white">Email:</label>
+                <input type="email" id="email" formControlName="email" required
+                  class="text-black mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-teal focus:border-teal sm:text-sm border-gray-300">
+                <p *ngIf="signupForm.get('email')?.errors && formSubmitted" class="text-yellow-300 text-sm mt-1">
+                  <span *ngIf="signupForm.get('email')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Email is required.</span>
+                  <span *ngIf="signupForm.get('email')?.errors?.['email']"><i class="fa-solid fa-triangle-exclamation"></i> Invalid email address.</span>
+                </p>
+              </div>
+              
+            </div>
+            <div class="col-span-1">
+              <div class="mb-4">
+                <label for="password" class="block text-sm font-medium text-white">Password:</label>
+                <input type="password" id="password" formControlName="password" required
+                  class="text-black mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-teal focus:border-teal sm:text-sm border-gray-300">
+                <p *ngIf="signupForm.get('password')?.errors && formSubmitted" class="text-yellow-300 text-sm mt-1">
+                  <span *ngIf="signupForm.get('password')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Password is required.</span>
+                  <span *ngIf="signupForm.get('password')?.errors?.['minlength']"><i class="fa-solid fa-triangle-exclamation"></i> Password must be at least 6 characters long.</span>
+                </p>
+              </div>
+              <div class="mb-4">
+                <label for="confirmPassword" class="block text-sm font-medium text-white">Confirm Password:</label>
+                <input type="password" id="confirmPassword" formControlName="confirmPassword" required
+                  class="text-black mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-teal focus:border-teal sm:text-sm border-gray-300">
+                <p *ngIf="signupForm.get('confirmPassword')?.errors && formSubmitted" class="text-yellow-300 text-sm mt-1">
+                  <span *ngIf="signupForm.get('confirmPassword')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Confirm Password is required.</span>
+                  <span *ngIf="signupForm.get('confirmPassword')?.errors?.['mismatch']"><i class="fa-solid fa-triangle-exclamation"></i> Passwords do not match.</span>
+                </p>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="errorMessage" class="text-red-500 text-sm mb-4">
+            {{ errorMessage }}
+          </div>
+          <div class="flex items-center justify-center">
+            <button type="submit"
+              class="border-white border hover:bg-teal hover:border-teal transition-colors duration-200 text-white text-xl font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline">
+              Create your account <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </form>
+        <hr class="my-3">
+        <div class="font-medium text-center mt-2 text-white">
+          Already have an account? <a routerLink="/login" class="text-yellow hover:underline">Log in</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

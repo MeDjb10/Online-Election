@@ -1,0 +1,18 @@
+<nav class="flex justify-between items-center p-4 bg-red-600 text-white">
+  <a routerLink="/" class="text-lg font-bold">Home</a>
+  <p class="text-lg font-bold">----- Welcome to the Presidential Election Portal -----</p>
+  <div class="flex gap-4">
+    <a *ngIf="loggedIn" routerLink="/accueil/profile" routerLinkActive="active"
+      class="text-lg font-bold p-2 rounded-lg border border-red-600 hover:border hover:border-white hover:text-white transition">
+      <i class="fa-solid fa-user"></i> Profile
+    </a>
+    <a *ngIf="!loggedIn" routerLink="/login"
+      class="text-lg font-bold p-2 rounded-lg border border-red-600 hover:border hover:border-white hover:text-white transition">
+      <i class="fa-solid fa-sign-in-alt"></i> Login
+    </a>
+    <a *ngIf="loggedIn" (click)="logout()"
+      class="text-lg font-bold p-2 rounded-lg border border-red-600 hover:border hover:border-white hover:text-white transition cursor-pointer">
+      <i class="fa-solid fa-sign-out-alt"></i> Logout
+    </a>
+  </div>
+</nav>

@@ -1,0 +1,1478 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>frontend-projet-node documentation</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	   <link rel="stylesheet" href="../styles/style.css">
+        <link rel="stylesheet" href="../styles/dark.css">
+    </head>
+    <body>
+          <script>
+               // Blocking script to avoid flickering dark mode
+               // Dark mode toggle button
+               var useDark = window.matchMedia('(prefers-color-scheme: dark)');
+               var darkModeState = useDark.matches;
+               var $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               var $darkModeToggles = document.querySelectorAll('.dark-mode-switch');
+               var darkModeStateLocal = localStorage.getItem('compodoc_darkmode-state');
+
+               function checkToggle(check) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].checked = check;
+                    }
+               }
+
+               function toggleDarkMode(state) {
+                    if (window.localStorage) {
+                         localStorage.setItem('compodoc_darkmode-state', state);
+                    }
+
+                    checkToggle(state);
+
+                    const hasClass = document.body.classList.contains('dark');
+
+                    if (state) {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.add('dark');
+                         }
+                         if (!hasClass) {
+                              document.body.classList.add('dark');
+                         }
+                    } else {
+                         for (var i = 0; i < $darkModeToggles.length; i++) {
+                              $darkModeToggles[i].classList.remove('dark');
+                         }
+                         if (hasClass) {
+                              document.body.classList.remove('dark');
+                         }
+                    }
+               }
+
+               useDark.addEventListener('change', function (evt) {
+                    toggleDarkMode(evt.matches);
+               });
+               if (darkModeStateLocal) {
+                    darkModeState = darkModeStateLocal === 'true';
+               }
+               toggleDarkMode(darkModeState);
+          </script>
+
+        <div class="navbar navbar-default navbar-fixed-top d-md-none p-0">
+               <div class="d-flex">
+                    <a href="../" class="navbar-brand">frontend-projet-node documentation</a>
+                    <button type="button" class="btn btn-default btn-menu ion-ios-menu" id="btn-menu"></button>
+               </div>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+                <div id="book-search-input" role="search"><input type="text" placeholder="Type to search"></div>            <compodoc-menu></compodoc-menu>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="d-none d-md-block menu">
+                   <compodoc-menu mode="normal"></compodoc-menu>
+               </div>
+               <!-- START CONTENT -->
+               <div class="content component">
+                   <div class="content-data">
+
+
+
+
+<ol class="breadcrumb">
+  <li class="breadcrumb-item">Components</li>
+  <li class="breadcrumb-item"
+  >
+  CandidatDetailsComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+        <li class="nav-item">
+            <a href="#info" class="nav-link active"
+                role="tab" id="info-tab" data-bs-toggle="tab" data-link="info">Info</a>
+        </li>
+        <li class="nav-item">
+            <a href="#source" class="nav-link"
+                role="tab" id="source-tab" data-bs-toggle="tab" data-link="source">Source</a>
+        </li>
+        <li class="nav-item">
+            <a href="#templateData" class="nav-link"
+                role="tab" id="templateData-tab" data-bs-toggle="tab" data-link="template">Template</a>
+        </li>
+        <li class="nav-item">
+            <a href="#styleData" class="nav-link"
+                role="tab" id="styleData-tab" data-bs-toggle="tab" data-link="style">Styles</a>
+        </li>
+        <li class="nav-item">
+            <a href="#tree" class="nav-link"
+                role="tab" id="tree-tab" data-bs-toggle="tab" data-link="dom-tree">DOM Tree</a>
+        </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="info"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/components/candidat-details/candidat-details.component.ts</code>
+</p>
+
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code>OnInit</code>
+    </p>
+
+
+<section data-compodoc="block-metadata">
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover metadata">
+        <tbody>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">providers</td>
+                <td class="col-md-9">
+                                <code><a href="../injectables/CandidateService.html" target="_self" >CandidateService</a></code>
+                                <code><a href="../injectables/CommentService.html" target="_self" >CommentService</a></code>
+                                <code><a href="../injectables/FavoriteService.html" target="_self" >FavoriteService</a></code>
+                                <code><a href="../injectables/VoteService.html" target="_self" >VoteService</a></code>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>app-candidat-details</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">standalone</td>
+                <td class="col-md-9"><code>true</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">imports</td>
+                <td class="col-md-9">
+                            <code>DialogModule</code>
+                            <code>CommonModule</code>
+                            <code>TooltipModule</code>
+                            <code>FormsModule</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>./candidat-details.component.css</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./candidat-details.component.html</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#alreadyFavorite" >alreadyFavorite</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Optional</span>
+                                <a href="#candidate" >candidate</a>
+                            </li>
+                            <li>
+                                <a href="#comments" >comments</a>
+                            </li>
+                            <li>
+                                <a href="#hasVoted" >hasVoted</a>
+                            </li>
+                            <li>
+                                <a href="#newComment" >newComment</a>
+                            </li>
+                            <li>
+                                <a href="#visible" >visible</a>
+                            </li>
+                            <li>
+                                <a href="#votedForCurrentCandidate" >votedForCurrentCandidate</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Methods</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                <a href="#addComment" >addComment</a>
+                            </li>
+                            <li>
+                                <a href="#castVote" >castVote</a>
+                            </li>
+                            <li>
+                                <a href="#checkFavorite" >checkFavorite</a>
+                            </li>
+                            <li>
+                                <a href="#checkVote" >checkVote</a>
+                            </li>
+                            <li>
+                                <a href="#confirmVote" >confirmVote</a>
+                            </li>
+                            <li>
+                                <a href="#getCandidate" >getCandidate</a>
+                            </li>
+                            <li>
+                                <a href="#getComments" >getComments</a>
+                            </li>
+                            <li>
+                                <a href="#ngOnInit" >ngOnInit</a>
+                            </li>
+                            <li>
+                                <a href="#toggleFavorite" >toggleFavorite</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section data-compodoc="block-constructor">
+    <h3 id="constructor">Constructor</h3>
+        <table class="table table-sm table-bordered">
+            <tbody>
+                <tr>
+                    <td class="col-md-4">
+<code>constructor(route: ActivatedRoute, candidateService: <a href="../injectables/CandidateService.html" target="_self">CandidateService</a>, commentService: <a href="../injectables/CommentService.html" target="_self">CommentService</a>, favoriteService: <a href="../injectables/FavoriteService.html" target="_self">FavoriteService</a>, voteService: <a href="../injectables/VoteService.html" target="_self">VoteService</a>)</code>
+                    </td>
+                </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:30</a></div>
+                            </td>
+                        </tr>
+
+                <tr>
+                    <td class="col-md-4">
+                            <div>
+                                    <b>Parameters :</b>
+                                    <table class="params">
+                                        <thead>
+                                            <tr>
+                                                <td>Name</td>
+                                                    <td>Type</td>
+                                                <td>Optional</td>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                                <tr>
+                                                        <td>route</td>
+                                                  
+                                                        <td>
+                                                                    <code>ActivatedRoute</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>candidateService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CandidateService.html" target="_self" >CandidateService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>commentService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/CommentService.html" target="_self" >CommentService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>favoriteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/FavoriteService.html" target="_self" >FavoriteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                                <tr>
+                                                        <td>voteService</td>
+                                                  
+                                                        <td>
+                                                                        <code><a href="../injectables/VoteService.html" target="_self" >VoteService</a></code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                </tr>
+                                        </tbody>
+                                    </table>
+                            </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+</section>
+
+
+
+
+
+    <section data-compodoc="block-methods">
+    
+    <h3 id="methods">
+        Methods
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="addComment"></a>
+                    <span class="name">
+                        <span ><b>addComment</b></span>
+                        <a href="#addComment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>addComment()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="103"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:103</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="castVote"></a>
+                    <span class="name">
+                        <span ><b>castVote</b></span>
+                        <a href="#castVote"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>castVote()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="159"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:159</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkFavorite"></a>
+                    <span class="name">
+                        <span ><b>checkFavorite</b></span>
+                        <a href="#checkFavorite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkFavorite(candidateId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="71"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:71</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>candidateId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="checkVote"></a>
+                    <span class="name">
+                        <span ><b>checkVote</b></span>
+                        <a href="#checkVote"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>checkVote(candidateId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="84"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:84</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>candidateId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="confirmVote"></a>
+                    <span class="name">
+                        <span ><b>confirmVote</b></span>
+                        <a href="#confirmVote"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>confirmVote()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="155"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:155</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getCandidate"></a>
+                    <span class="name">
+                        <span ><b>getCandidate</b></span>
+                        <a href="#getCandidate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getCandidate(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="49"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:49</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="getComments"></a>
+                    <span class="name">
+                        <span ><b>getComments</b></span>
+                        <a href="#getComments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>getComments(candidateId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="60"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:60</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>candidateId</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="ngOnInit"></a>
+                    <span class="name">
+                        <span ><b>ngOnInit</b></span>
+                        <a href="#ngOnInit"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>ngOnInit()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="40"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:40</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="toggleFavorite"></a>
+                    <span class="name">
+                        <span ><b>toggleFavorite</b></span>
+                        <a href="#toggleFavorite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+<code>toggleFavorite()</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="133"
+                                    class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:133</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+
+                        </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+    <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="alreadyFavorite"></a>
+                    <span class="name">
+                        <span ><b>alreadyFavorite</b></span>
+                        <a href="#alreadyFavorite"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="26" class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:26</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="candidate"></a>
+                    <span class="name">
+                            <span class="modifier">Optional</span>
+                        <span ><b>candidate</b></span>
+                        <a href="#candidate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Candidate.html" target="_self" >Candidate</a></code>
+
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="24" class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:24</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="comments"></a>
+                    <span class="name">
+                        <span ><b>comments</b></span>
+                        <a href="#comments"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="../interfaces/Comment.html" target="_self" >Comment[]</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>[]</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="25" class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:25</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="hasVoted"></a>
+                    <span class="name">
+                        <span ><b>hasVoted</b></span>
+                        <a href="#hasVoted"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:27</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="newComment"></a>
+                    <span class="name">
+                        <span ><b>newComment</b></span>
+                        <a href="#newComment"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>&#x27;&#x27;</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="30" class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:30</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="visible"></a>
+                    <span class="name">
+                        <span ><b>visible</b></span>
+                        <a href="#visible"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="29" class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:29</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="votedForCurrentCandidate"></a>
+                    <span class="name">
+                        <span ><b>votedForCurrentCandidate</b></span>
+                        <a href="#votedForCurrentCandidate"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Default value : </i><code>false</code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/app/components/candidat-details/candidat-details.component.ts:28</a></div>
+                        </td>
+                    </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+</div>
+
+
+    <div class="tab-pane fade  tab-source-code" id="source">
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Component, OnInit } from &#x27;@angular/core&#x27;;
+import { ActivatedRoute } from &#x27;@angular/router&#x27;;
+import { CandidateService } from &#x27;../../services/candidate.service&#x27;;
+import { CommentService } from &#x27;../../services/comment.service&#x27;;
+import { FavoriteService } from &#x27;../../services/favorite.service&#x27;;
+import { VoteService } from &#x27;../../services/vote.service&#x27;;
+import { Candidate } from &#x27;../../models/candidate.model&#x27;;
+import { Comment } from &#x27;../../models/comment.model&#x27;;
+import { FormsModule } from &#x27;@angular/forms&#x27;;
+import { CommonModule } from &#x27;@angular/common&#x27;;
+import { DialogModule } from &#x27;primeng/dialog&#x27;;
+import { TooltipModule } from &#x27;primeng/tooltip&#x27;;
+import { log } from &#x27;console&#x27;;
+
+@Component({
+  selector: &#x27;app-candidat-details&#x27;,
+  standalone: true,
+  imports: [DialogModule, CommonModule, TooltipModule, FormsModule],
+  templateUrl: &#x27;./candidat-details.component.html&#x27;,
+  styleUrls: [&#x27;./candidat-details.component.css&#x27;],
+  providers: [CandidateService, CommentService, FavoriteService, VoteService],
+})
+export class CandidatDetailsComponent implements OnInit {
+  candidate?: Candidate;
+  comments: Comment[] &#x3D; [];
+  alreadyFavorite: boolean &#x3D; false;
+  hasVoted: boolean &#x3D; false;
+  votedForCurrentCandidate: boolean &#x3D; false;
+  visible: boolean &#x3D; false;
+  newComment: string &#x3D; &#x27;&#x27;;
+
+  constructor(
+    private route: ActivatedRoute,
+    private candidateService: CandidateService,
+    private commentService: CommentService,
+    private favoriteService: FavoriteService,
+    private voteService: VoteService
+  ) {}
+
+  ngOnInit(): void {
+    const candidateId &#x3D; this.route.snapshot.paramMap.get(&#x27;id&#x27;)!;
+    this.getCandidate(candidateId);
+    this.getComments(candidateId);
+    this.checkFavorite(candidateId);
+    this.checkVote(candidateId);
+    console.log(this.hasVoted);
+  }
+
+  getCandidate(id: string): void {
+    this.candidateService.getCandidate(id).subscribe({
+      next: (candidate) &#x3D;&gt; {
+        this.candidate &#x3D; candidate;
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error fetching candidate:&#x27;, error);
+      },
+    });
+  }
+
+  getComments(candidateId: string): void {
+    this.commentService.getComments(candidateId).subscribe({
+      next: (comments) &#x3D;&gt; {
+        this.comments &#x3D; comments;
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error fetching comments:&#x27;, error);
+      },
+    });
+  }
+
+  checkFavorite(candidateId: string): void {
+    this.favoriteService.getFavorites().subscribe({
+      next: (favorites) &#x3D;&gt; {
+        this.alreadyFavorite &#x3D; favorites.some(
+          (favorite) &#x3D;&gt; favorite._id &#x3D;&#x3D;&#x3D; candidateId
+        );
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error checking favorites:&#x27;, error);
+      },
+    });
+  }
+
+  checkVote(candidateId: string): void {
+    this.voteService.getUserVotes().subscribe({
+      next: (votes) &#x3D;&gt; {
+        console.log(&#x27;Votes:&#x27;, votes);
+
+        this.hasVoted &#x3D; votes.length &gt; 0;
+        console.log(&#x27;Has voted:&#x27;, this.hasVoted);
+
+        // User has voted for the current candidate if there is a vote with the current candidate ID
+        this.votedForCurrentCandidate &#x3D; votes.some(
+          (vote) &#x3D;&gt; vote.candidate._id &#x3D;&#x3D;&#x3D; candidateId
+        );
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error checking votes:&#x27;, error);
+      },
+    });
+  }
+
+  addComment(): void {
+    if (!this.candidate) {
+      console.error(&#x27;Candidate is not defined&#x27;);
+      return;
+    }
+
+    this.commentService
+      .addComment(this.candidate._id!, this.newComment)
+      .subscribe({
+        next: (response) &#x3D;&gt; {
+          const newComment &#x3D; response.comment;
+          console.log(&#x27;New comment added:&#x27;, newComment);
+
+          // Fetch the user details for the new comment
+          this.commentService.getComment(newComment._id!).subscribe({
+            next: (fetchedComment) &#x3D;&gt; {
+              this.comments.push(fetchedComment);
+              this.newComment &#x3D; &#x27;&#x27;;
+            },
+            error: (error) &#x3D;&gt; {
+              console.error(&#x27;Error fetching new comment:&#x27;, error);
+            },
+          });
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error adding comment:&#x27;, error);
+        },
+      });
+  }
+
+  toggleFavorite(): void {
+    if (this.alreadyFavorite) {
+      this.favoriteService.removeFavorite(this.candidate?._id!).subscribe({
+        next: () &#x3D;&gt; {
+          this.alreadyFavorite &#x3D; false;
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error removing favorite:&#x27;, error);
+        },
+      });
+    } else {
+      this.favoriteService.addFavorite(this.candidate?._id!).subscribe({
+        next: () &#x3D;&gt; {
+          this.alreadyFavorite &#x3D; true;
+        },
+        error: (error) &#x3D;&gt; {
+          console.error(&#x27;Error adding favorite:&#x27;, error);
+        },
+      });
+    }
+  }
+
+  confirmVote(): void {
+    this.visible &#x3D; !this.visible;
+  }
+
+  castVote(): void {
+    if (!this.candidate) {
+      console.error(&#x27;Candidate is not defined&#x27;);
+      return;
+    }
+
+    this.voteService.castVote(this.candidate._id!).subscribe({
+      next: (response) &#x3D;&gt; {
+        console.log(&#x27;Vote cast successfully:&#x27;, response);
+        this.hasVoted &#x3D; true;
+        this.votedForCurrentCandidate &#x3D; true;
+        this.visible &#x3D; false;
+      },
+      error: (error) &#x3D;&gt; {
+        console.error(&#x27;Error casting vote:&#x27;, error);
+      },
+    });
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;div class&#x3D;&quot;p-4 grid grid-cols-9&quot;&gt;
+    &lt;div class&#x3D;&quot;col-span-3 p-2&quot;&gt;
+        &lt;div class&#x3D;&quot;relative w-full rounded-lg&quot;&gt;
+            &lt;div class&#x3D;&quot;relative rounded-lg&quot;&gt;
+                &lt;img [src]&#x3D;&quot;&#x27;assets/licensed-image.jpg&#x27;&quot; alt&#x3D;&quot;{{ candidate?.name }}&quot;
+                    class&#x3D;&quot;w-full h-full object-cover rounded-lg&quot;&gt;
+                &lt;div class&#x3D;&quot;absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg&quot;&gt;&lt;/div&gt;
+            &lt;/div&gt;
+            &lt;p class&#x3D;&quot;absolute bottom-0 left-0 w-full text-white font-bold text-5xl mb-4 ml-2 tracking-tighter capitalize&quot;&gt;
+                {{ candidate?.name }}
+            &lt;/p&gt;
+        &lt;/div&gt;
+
+        &lt;div class&#x3D;&quot;flex gap-2 my-2&quot;&gt;
+            &lt;button (click)&#x3D;&quot;confirmVote()&quot; [disabled]&#x3D;&quot;hasVoted&quot;
+                class&#x3D;&quot;text-red-600 border-2 font-semibold transition-colors duration-200 text-xl border-red-600 hover:bg-red-600 rounded-lg w-full hover:text-white&quot;
+                [ngClass]&#x3D;&quot;{&#x27;bg-gray-400 text-gray-700 border-gray-400&#x27;: hasVoted}&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-check-to-slot mr-2&quot;&gt;&lt;/i&gt;
+                {{ hasVoted ? (votedForCurrentCandidate ? &#x27;Voted&#x27; : &#x27;You already voted for another candidate&#x27;) : &#x27;Vote&#x27; }}
+            &lt;/button&gt;
+            &lt;button *ngIf&#x3D;&quot;alreadyFavorite&quot; (click)&#x3D;&quot;toggleFavorite()&quot; pTooltip&#x3D;&quot;Already favourited&quot; tooltipPosition&#x3D;&quot;top&quot;
+                class&#x3D;&quot;border-2 font-semibold transition-colors duration-200 text-xl border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white rounded-lg fit px-2 py-1&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-star&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+            &lt;button *ngIf&#x3D;&quot;!alreadyFavorite&quot; (click)&#x3D;&quot;toggleFavorite()&quot; pTooltip&#x3D;&quot;Add favourite?&quot; tooltipPosition&#x3D;&quot;top&quot;
+                class&#x3D;&quot;border-2 font-semibold transition-colors duration-200 text-xl border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white rounded-lg fit px-2 py-1&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-regular fa-star&quot;&gt;&lt;/i&gt;
+            &lt;/button&gt;
+        &lt;/div&gt;
+        &lt;hr class&#x3D;&quot;border-red-600&quot;&gt;
+        &lt;p class&#x3D;&quot;text-6xl font-bold tracking-tighter my-2&quot;&gt;
+            BIOGRAPHY:
+        &lt;/p&gt;
+        &lt;p class&#x3D;&quot;text-justify text-lg&quot;&gt;
+            {{ candidate?.biography }}
+        &lt;/p&gt;
+    &lt;/div&gt;
+    &lt;div class&#x3D;&quot;col-span-6 p-2&quot;&gt;
+        &lt;div class&#x3D;&quot;p-2 rounded-lg border-2 border-blue-400 hover:border-blue-700 transition-all duration-200&quot;&gt;
+            &lt;p class&#x3D;&quot;text-6xl font-bold tracking-tighter mb-2&quot;&gt;
+                PROGRAM:
+            &lt;/p&gt;
+            &lt;hr class&#x3D;&quot;border-blue-300&quot;&gt;
+            &lt;p class&#x3D;&quot;text-justify text-lg&quot;&gt;
+                {{ candidate?.electoralProgram }}
+            &lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class&#x3D;&quot;mt-6 p-4 rounded-lg border-2 border-blue-300 max-h-svh&quot;&gt;
+            &lt;p class&#x3D;&quot;text-4xl font-bold tracking-tighter mb-4&quot;&gt;Forum&lt;/p&gt;
+            &lt;hr class&#x3D;&quot;border-gray-300 mb-4&quot;&gt;
+            &lt;div class&#x3D;&quot;overflow-scroll max-h-80&quot;&gt;
+                &lt;div *ngFor&#x3D;&quot;let comment of comments&quot; class&#x3D;&quot;mb-4 border rounded-xl p-2 border-blue-400 shadow-md hover:border-blue-700&quot;&gt;
+                    &lt;div class&#x3D;&quot;flex justify-between mb-1&quot;&gt;
+                        &lt;div class&#x3D;&quot;flex justify-center items-center&quot;&gt;
+                            &lt;i class&#x3D;&quot;fa-solid fa-circle-user fa-xl mr-2&quot;&gt;&lt;/i&gt;
+                            &lt;p class&#x3D;&quot;text-xl font-bold text-gray-800&quot;&gt;{{ comment.user.name }}&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;p class&#x3D;&quot;text-sm text-gray-500&quot;&gt;{{ comment.createdAt | date:&#x27;short&#x27; }}&lt;/p&gt;
+                    &lt;/div&gt;
+                    &lt;hr class&#x3D;&quot;border&quot;&gt;
+                    &lt;p class&#x3D;&quot;text-lg text-gray-700 mt-2&quot;&gt;
+                        {{ comment.content }}
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class&#x3D;&quot;mt-4 p-4 border-t border-gray-300&quot;&gt;
+                &lt;p class&#x3D;&quot;text-2xl font-semibold mb-2&quot;&gt;Add a Comment&lt;/p&gt;
+                &lt;div class&#x3D;&quot;flex flex-col gap-2&quot;&gt;
+                    &lt;textarea [(ngModel)]&#x3D;&quot;newComment&quot;
+                        class&#x3D;&quot;p-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none&quot;
+                        rows&#x3D;&quot;1&quot; placeholder&#x3D;&quot;Write your comment here...&quot;&gt;&lt;/textarea&gt;
+                    &lt;button (click)&#x3D;&quot;addComment()&quot;
+                        class&#x3D;&quot;self-start bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition&quot;&gt;
+                        Submit
+                    &lt;/button&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p-dialog header&#x3D;&quot;Confirm Vote&quot; [(visible)]&#x3D;&quot;visible&quot; [modal]&#x3D;&quot;true&quot; [dismissableMask]&#x3D;&quot;true&quot; [closable]&#x3D;&quot;true&quot;
+    [resizable]&#x3D;&quot;true&quot; class&#x3D;&quot;rounded-xl&quot;&gt;
+    &lt;div class&#x3D;&quot;p-2 text-black&quot;&gt;
+        &lt;p class&#x3D;&quot;text-lg text-center mb-2 font-semibold&quot;&gt;Are you sure you want to vote for this candidate?&lt;/p&gt;
+        &lt;div class&#x3D;&quot;flex gap-4 justify-center&quot;&gt;
+            &lt;button (click)&#x3D;&quot;castVote()&quot;
+                class&#x3D;&quot;bg-white border-2 border-green-500 rounded-lg py-1 px-2 hover:bg-green-500 hover:shadow-md hover:text-white font-semibold transition-all duration-150&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-check&quot;&gt;&lt;/i&gt; Confirm
+            &lt;/button&gt;
+            &lt;button (click)&#x3D;&quot;confirmVote()&quot;
+                class&#x3D;&quot;bg-white border-2 border-red-500 rounded-lg py-1 px-2 hover:bg-red-500 hover:shadow-md hover:text-white font-semibold transition-all duration-150&quot;&gt;
+                &lt;i class&#x3D;&quot;fa-solid fa-xmark mr-2&quot;&gt;&lt;/i&gt; Cancel
+            &lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/p-dialog&gt;</code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="styleData">
+                <p class="comment">
+                    <code>./candidat-details.component.css</code>
+                </p>
+                <pre class="line-numbers"><code class="language-scss"></code></pre>
+    </div>
+
+    <div class="tab-pane fade " id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+
+    
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><div class="p-4 grid grid-cols-9">    <div class="col-span-3 p-2">        <div class="relative w-full rounded-lg">            <div class="relative rounded-lg">                <img [src]="\'assets/licensed-image.jpg\'" alt="{{ candidate?.name }}"                    class="w-full h-full object-cover rounded-lg">                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg"></div>            </div>            <p class="absolute bottom-0 left-0 w-full text-white font-bold text-5xl mb-4 ml-2 tracking-tighter capitalize">                {{ candidate?.name }}            </p>        </div>        <div class="flex gap-2 my-2">            <button (click)="confirmVote()" [disabled]="hasVoted"                class="text-red-600 border-2 font-semibold transition-colors duration-200 text-xl border-red-600 hover:bg-red-600 rounded-lg w-full hover:text-white"                [ngClass]="{\'bg-gray-400 text-gray-700 border-gray-400\': hasVoted}">                <i class="fa-solid fa-check-to-slot mr-2"></i>                {{ hasVoted ? (votedForCurrentCandidate ? \'Voted\' : \'You already voted for another candidate\') : \'Vote\' }}            </button>            <button *ngIf="alreadyFavorite" (click)="toggleFavorite()" pTooltip="Already favourited" tooltipPosition="top"                class="border-2 font-semibold transition-colors duration-200 text-xl border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white rounded-lg fit px-2 py-1">                <i class="fa-solid fa-star"></i>            </button>            <button *ngIf="!alreadyFavorite" (click)="toggleFavorite()" pTooltip="Add favourite?" tooltipPosition="top"                class="border-2 font-semibold transition-colors duration-200 text-xl border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white rounded-lg fit px-2 py-1">                <i class="fa-regular fa-star"></i>            </button>        </div>        <hr class="border-red-600">        <p class="text-6xl font-bold tracking-tighter my-2">            BIOGRAPHY:        </p>        <p class="text-justify text-lg">            {{ candidate?.biography }}        </p>    </div>    <div class="col-span-6 p-2">        <div class="p-2 rounded-lg border-2 border-blue-400 hover:border-blue-700 transition-all duration-200">            <p class="text-6xl font-bold tracking-tighter mb-2">                PROGRAM:            </p>            <hr class="border-blue-300">            <p class="text-justify text-lg">                {{ candidate?.electoralProgram }}            </p>        </div>        <div class="mt-6 p-4 rounded-lg border-2 border-blue-300 max-h-svh">            <p class="text-4xl font-bold tracking-tighter mb-4">Forum</p>            <hr class="border-gray-300 mb-4">            <div class="overflow-scroll max-h-80">                <div *ngFor="let comment of comments" class="mb-4 border rounded-xl p-2 border-blue-400 shadow-md hover:border-blue-700">                    <div class="flex justify-between mb-1">                        <div class="flex justify-center items-center">                            <i class="fa-solid fa-circle-user fa-xl mr-2"></i>                            <p class="text-xl font-bold text-gray-800">{{ comment.user.name }}</p>                        </div>                        <p class="text-sm text-gray-500">{{ comment.createdAt | date:\'short\' }}</p>                    </div>                    <hr class="border">                    <p class="text-lg text-gray-700 mt-2">                        {{ comment.content }}                    </p>                </div>            </div>            <div class="mt-4 p-4 border-t border-gray-300">                <p class="text-2xl font-semibold mb-2">Add a Comment</p>                <div class="flex flex-col gap-2">                    <textarea [(ngModel)]="newComment"                        class="p-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"                        rows="1" placeholder="Write your comment here..."></textarea>                    <button (click)="addComment()"                        class="self-start bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition">                        Submit                    </button>                </div>            </div>        </div>    </div></div><p-dialog header="Confirm Vote" [(visible)]="visible" [modal]="true" [dismissableMask]="true" [closable]="true"    [resizable]="true" class="rounded-xl">    <div class="p-2 text-black">        <p class="text-lg text-center mb-2 font-semibold">Are you sure you want to vote for this candidate?</p>        <div class="flex gap-4 justify-center">            <button (click)="castVote()"                class="bg-white border-2 border-green-500 rounded-lg py-1 px-2 hover:bg-green-500 hover:shadow-md hover:text-white font-semibold transition-all duration-150">                <i class="fa-solid fa-check"></i> Confirm            </button>            <button (click)="confirmVote()"                class="bg-white border-2 border-red-500 rounded-lg py-1 px-2 hover:bg-red-500 hover:shadow-md hover:text-white font-semibold transition-all duration-150">                <i class="fa-solid fa-xmark mr-2"></i> Cancel            </button>        </div>    </div></p-dialog></div>'
+    var COMPONENTS = [{'name': 'AccueilComponent', 'selector': 'app-accueil'},{'name': 'AdminFormCandidatsComponent', 'selector': 'app-admin-form-candidats'},{'name': 'AdminListCandidatsComponent', 'selector': 'app-admin-list-candidats'},{'name': 'AdminListUsersComponent', 'selector': 'app-admin-list-users'},{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'CandidatDetailsComponent', 'selector': 'app-candidat-details'},{'name': 'CandidatDivComponent', 'selector': 'app-candidat-div'},{'name': 'DashboardComponent', 'selector': 'app-dashboard'},{'name': 'FooterComponent', 'selector': 'app-footer'},{'name': 'HomeComponent', 'selector': 'app-home'},{'name': 'LoginComponent', 'selector': 'app-login'},{'name': 'NavbarComponent', 'selector': 'app-navbar'},{'name': 'ProfilComponent', 'selector': 'app-profil'},{'name': 'SignupComponent', 'selector': 'app-signup'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'CandidatDetailsComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+               <!-- END CONTENT -->
+           </div>
+       </div>
+
+          <label class="dark-mode-switch">
+               <input type="checkbox">
+               <span class="slider">
+                    <svg class="slider-icon" viewBox="0 0 24 24" fill="none" height="20" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" width="20" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"></path>
+                    </svg>
+               </span>
+          </label>
+
+       <script>
+            var COMPODOC_CURRENT_PAGE_DEPTH = 1;
+            var COMPODOC_CURRENT_PAGE_CONTEXT = 'component';
+            var COMPODOC_CURRENT_PAGE_URL = 'CandidatDetailsComponent.html';
+            var MAX_SEARCH_RESULTS = 15;
+       </script>
+
+       <script>
+               $darkModeToggleSwitchers = document.querySelectorAll('.dark-mode-switch input');
+               checkToggle(darkModeState);
+               if ($darkModeToggleSwitchers.length > 0) {
+                    for (var i = 0; i < $darkModeToggleSwitchers.length; i++) {
+                         $darkModeToggleSwitchers[i].addEventListener('change', function (event) {
+                              darkModeState = !darkModeState;
+                              toggleDarkMode(darkModeState);
+                         });
+                    }
+               }
+          </script>
+
+       <script src="../js/libs/custom-elements.min.js"></script>
+       <script src="../js/libs/lit-html.js"></script>
+
+       <script src="../js/menu-wc.js" defer></script>
+       <script nomodule src="../js/menu-wc_es5.js" defer></script>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/clipboard.min.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+          <script src="../js/search/search.js"></script>
+          <script src="../js/search/lunr.min.js"></script>
+          <script src="../js/search/search-lunr.js"></script>
+          <script src="../js/search/search_index.js"></script>
+       <script src="../js/lazy-load-graphs.js"></script>
+
+
+    </body>
+</html>

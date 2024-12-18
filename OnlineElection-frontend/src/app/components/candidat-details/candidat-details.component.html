@@ -1,0 +1,96 @@
+<div class="p-4 grid grid-cols-9">
+    <div class="col-span-3 p-2">
+        <div class="relative w-full rounded-lg">
+            <div class="relative rounded-lg">
+                <img [src]="'assets/licensed-image.jpg'" alt="{{ candidate?.name }}"
+                    class="w-full h-full object-cover rounded-lg">
+                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent rounded-lg"></div>
+            </div>
+            <p class="absolute bottom-0 left-0 w-full text-white font-bold text-5xl mb-4 ml-2 tracking-tighter capitalize">
+                {{ candidate?.name }}
+            </p>
+        </div>
+
+        <div class="flex gap-2 my-2">
+            <button (click)="confirmVote()" [disabled]="hasVoted"
+                class="text-red-600 border-2 font-semibold transition-colors duration-200 text-xl border-red-600 hover:bg-red-600 rounded-lg w-full hover:text-white"
+                [ngClass]="{'bg-gray-400 text-gray-700 border-gray-400': hasVoted}">
+                <i class="fa-solid fa-check-to-slot mr-2"></i>
+                {{ hasVoted ? (votedForCurrentCandidate ? 'Voted' : 'You already voted for another candidate') : 'Vote' }}
+            </button>
+            <button *ngIf="alreadyFavorite" (click)="toggleFavorite()" pTooltip="Already favourited" tooltipPosition="top"
+                class="border-2 font-semibold transition-colors duration-200 text-xl border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white rounded-lg fit px-2 py-1">
+                <i class="fa-solid fa-star"></i>
+            </button>
+            <button *ngIf="!alreadyFavorite" (click)="toggleFavorite()" pTooltip="Add favourite?" tooltipPosition="top"
+                class="border-2 font-semibold transition-colors duration-200 text-xl border-yellow-500 text-yellow-500 hover:bg-yellow-500 hover:text-white rounded-lg fit px-2 py-1">
+                <i class="fa-regular fa-star"></i>
+            </button>
+        </div>
+        <hr class="border-red-600">
+        <p class="text-6xl font-bold tracking-tighter my-2">
+            BIOGRAPHY:
+        </p>
+        <p class="text-justify text-lg">
+            {{ candidate?.biography }}
+        </p>
+    </div>
+    <div class="col-span-6 p-2">
+        <div class="p-2 rounded-lg border-2 border-blue-400 hover:border-blue-700 transition-all duration-200">
+            <p class="text-6xl font-bold tracking-tighter mb-2">
+                PROGRAM:
+            </p>
+            <hr class="border-blue-300">
+            <p class="text-justify text-lg">
+                {{ candidate?.electoralProgram }}
+            </p>
+        </div>
+        <div class="mt-6 p-4 rounded-lg border-2 border-blue-300 max-h-svh">
+            <p class="text-4xl font-bold tracking-tighter mb-4">Forum</p>
+            <hr class="border-gray-300 mb-4">
+            <div class="overflow-scroll max-h-80">
+                <div *ngFor="let comment of comments" class="mb-4 border rounded-xl p-2 border-blue-400 shadow-md hover:border-blue-700">
+                    <div class="flex justify-between mb-1">
+                        <div class="flex justify-center items-center">
+                            <i class="fa-solid fa-circle-user fa-xl mr-2"></i>
+                            <p class="text-xl font-bold text-gray-800">{{ comment.user.name }}</p>
+                        </div>
+                        <p class="text-sm text-gray-500">{{ comment.createdAt | date:'short' }}</p>
+                    </div>
+                    <hr class="border">
+                    <p class="text-lg text-gray-700 mt-2">
+                        {{ comment.content }}
+                    </p>
+                </div>
+            </div>
+            <div class="mt-4 p-4 border-t border-gray-300">
+                <p class="text-2xl font-semibold mb-2">Add a Comment</p>
+                <div class="flex flex-col gap-2">
+                    <textarea [(ngModel)]="newComment"
+                        class="p-2 border rounded-md border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-400 resize-none"
+                        rows="1" placeholder="Write your comment here..."></textarea>
+                    <button (click)="addComment()"
+                        class="self-start bg-blue-500 text-white font-semibold py-2 px-4 rounded-md hover:bg-blue-600 transition">
+                        Submit
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<p-dialog header="Confirm Vote" [(visible)]="visible" [modal]="true" [dismissableMask]="true" [closable]="true"
+    [resizable]="true" class="rounded-xl">
+    <div class="p-2 text-black">
+        <p class="text-lg text-center mb-2 font-semibold">Are you sure you want to vote for this candidate?</p>
+        <div class="flex gap-4 justify-center">
+            <button (click)="castVote()"
+                class="bg-white border-2 border-green-500 rounded-lg py-1 px-2 hover:bg-green-500 hover:shadow-md hover:text-white font-semibold transition-all duration-150">
+                <i class="fa-solid fa-check"></i> Confirm
+            </button>
+            <button (click)="confirmVote()"
+                class="bg-white border-2 border-red-500 rounded-lg py-1 px-2 hover:bg-red-500 hover:shadow-md hover:text-white font-semibold transition-all duration-150">
+                <i class="fa-solid fa-xmark mr-2"></i> Cancel
+            </button>
+        </div>
+    </div>
+</p-dialog>

@@ -1,0 +1,99 @@
+<div class="grid grid-cols-12 p-4 gap-4">
+    <div class="col-span-3">
+        <div class="w-full rounded-lg">
+            <div class="rounded-lg">
+                <img src="assets/profile-user.png" alt="" class="h-72">
+            </div>
+            <div class="w-full text-black font-bold text-5xl mb-4 ml-2 tracking-tighter capitalize flex items-end gap-4">
+                <span>{{ user?.name }}</span>
+                <i pTooltip="Change Information" [autoHide]="false" tooltipPosition="top" placeholder="autoHide: false"
+                    class="text-base fa-solid fa-pen h-fit px-3 py-1 rounded-md transition-colors duration-100 
+                    border text-blue-500 border-blue-500 hover:text-black hover:bg-blue-500 cursor-pointer"
+                    (click)="editUser()"></i>
+            </div>
+        </div>
+        <hr class="border-red-600 py-2">
+        <p class="text-4xl font-bold tracking-tighter my-2">
+            BIOGRAPHY:
+        </p>
+        <p class="text-justify text-lg">
+            {{ user?.bio || 'No biography available.' }}
+        </p>
+    </div>
+    <div class="col-span-9">
+        <p class="text-2xl">Go Vote Now!</p>
+        <div class="text-2xl my-4">
+            You voted for: {{ votedCandidateName || 'No candidate voted yet.' }}
+        </div>
+        <hr>
+        <div class="my-4">
+            <p class="text-2xl">
+                List of favourited candidates:
+            </p>
+            <p-table #dt1 [value]="favoriteCandidates" dataKey="id" [rows]="10" [rowsPerPageOptions]="[10, 25, 50]"
+                [paginator]="true" [globalFilterFields]="['name', 'party', 'representative.name', 'status']">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="name">
+                            <div class="flex items-center">
+                                Name <p-sortIcon field="name" />
+                            </div>
+                        </th>
+                        <th pSortableColumn="party">
+                            <div class="flex items-center">
+                                Party <p-sortIcon field="party" />
+                            </div>
+                        </th>
+                        <th>Biography</th>
+                        <th>Electoral Program</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-candidate>
+                    <tr>
+                        <td>
+                            <div class="flex justify-start items-center gap-2">
+                                <img [src]="candidate.profilePicture" alt="{{ candidate.name }}" width="50"
+                                    class="rounded-full" />
+                                {{ candidate.name }}
+                            </div>
+                        </td>
+                        <td>{{ candidate.party }}</td>
+                        <td>{{ candidate.biography }}</td>
+                        <td>{{ candidate.electoralProgram }}</td>
+                    </tr>
+                </ng-template>
+                <ng-template *ngIf="favoriteCandidates.length == 0" pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="4">No Candidates found.</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </div>
+</div>
+<p-dialog header="Change Information" [(visible)]="show" [modal]="true" [closable]="true" [responsive]="true">
+    <p class="text-center min-w-80">Change your information</p>
+    <form [formGroup]="changeInfoForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+            <label for="name" class="block text-sm font-medium text-black">Full Name:</label>
+            <input type="text" id="name" formControlName="name" required
+                class="text-black mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-teal focus:border-teal sm:text-sm border-gray-300">
+            <div *ngIf="changeInfoForm.get('name')?.invalid && changeInfoForm.get('name')?.touched" class="text-red-500 text-xs mt-1">
+                Name is required.
+            </div>
+        </div>
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-medium text-black">Email:</label>
+            <input type="email" id="email" formControlName="email" required
+                class="text-black mt-1 p-2 block w-full border rounded-md shadow-sm focus:ring-teal focus:border-teal sm:text-sm border-gray-300">
+            <div *ngIf="changeInfoForm.get('email')?.invalid && changeInfoForm.get('email')?.touched" class="text-red-500 text-xs mt-1">
+                Valid email is required.
+            </div>
+        </div>
+        <div class="flex justify-evenly mt-3">
+            <button type="submit" pButton icon="pi pi-check" label="Yes" class="bg-green-500 text-white px-2"></button>
+            <button type="button" pButton icon="pi pi-times" label="No" class="bg-red-500 text-white px-2"
+                (click)="cancelCh()"></button>
+        </div>
+    </form>
+</p-dialog>

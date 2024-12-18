@@ -1,0 +1,17 @@
+<div class="relative group w-64 h-80 overflow-hidden rounded-lg shadow-lg">
+    <img src="assets/licensed-image.jpg" alt="Candidate Image" class="w-full h-full object-cover">
+
+    <div class="absolute bottom-4 left-4 text-white z-10 group-hover:opacity-0 transition-opacity">
+        <p class="text-lg font-bold">{{candidate.name}}</p>
+        <p class="text-sm font-medium">{{candidate.biography}}</p>
+    </div>
+
+    <div
+        class="absolute inset-0 bg-gradient-to-t from-red-600 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
+        <p class="text-white text-lg font-bold">{{candidate.name}}</p>
+        <p class="text-white text-sm font-medium">{{candidate.party}}</p>
+        <p class="text-white text-sm mb-2">{{candidate.electoralProgram}}.</p>
+        <button (click)="toDetails()"
+            class="border-white border text-white font-semibold py-1 px-3 rounded hover:bg-white hover:text-red-600 transition duration-200 cursor-pointer z-20">Details</button>
+    </div>
+</div>

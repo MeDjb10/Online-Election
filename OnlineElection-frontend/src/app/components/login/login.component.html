@@ -1,0 +1,62 @@
+<div class="relative min-h-screen bg-cover bg-center" style="background-image: url('assets/img.png');">
+  <!-- Overlay for gradient effect -->
+  <div class="absolute inset-0 bg-black opacity-45"></div>
+
+  <!-- Centered Login Form -->
+  <div class="relative z-10 flex items-center justify-center min-h-screen">
+    <div class="bg-white/15 p-8 rounded-xl shadow-md w-full max-w-lg backdrop-blur-sm border border-lightpink text-white">
+      <h2 class="text-4xl font-extrabold text-center tracking-tighter">Login</h2>
+      <p class="text-center">Write your informations.</p>
+      <hr class="my-2">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-medium">Email</label>
+          <div class="relative">
+            <input type="email" id="email" formControlName="email" required
+              class="mt-1 p-2 pl-10 block w-full border rounded-md shadow-sm focus:ring-teal focus:border-teal sm:text-sm md:text-base text-black border-gray-300">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fa-solid fa-envelope text-gray-400"></i>
+            </span>
+          </div>
+          <p *ngIf="loginForm.get('email')?.errors && formSubmitted" class="text-yellow-300 text-sm mt-1">
+            <span *ngIf="loginForm.get('email')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Email is required.</span>
+            <span *ngIf="loginForm.get('email')?.errors?.['email']"><i class="fa-solid fa-triangle-exclamation"></i> Invalid email address.</span>
+          </p>
+        </div>
+        <div class="mb-4">
+          <label for="password" class="block text-sm font-medium">Password</label>
+          <div class="relative">
+            <input type="password" id="password" formControlName="password" required
+              class="mt-1 p-2 pl-10 block w-full border rounded-md shadow-sm focus:ring-teal focus:border-teal sm:text-sm text-black border-gray-300">
+            <span class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+              <i class="fa-solid fa-lock text-gray-400"></i>
+            </span>
+          </div>
+          <p *ngIf="loginForm.get('password')?.errors && formSubmitted" class="text-yellow-300 text-sm mt-1">
+            <span *ngIf="loginForm.get('password')?.errors?.['required']"><i class="fa-solid fa-circle-exclamation"></i> Password is required.</span>
+            <span *ngIf="loginForm.get('password')?.errors?.['minlength']"><i class="fa-solid fa-triangle-exclamation"></i> Password must be at least 6 characters long.</span>
+          </p>
+        </div>
+        <div class="mb-4">
+          <label class="flex items-center">
+            <input type="checkbox" formControlName="remember" class="form-checkbox">
+            <span class="ml-2 text-sm">Remember Me</span>
+          </label>
+        </div>
+        <div *ngIf="errorMessage" class="text-red-500 text-sm mb-4">
+          {{ errorMessage }}
+        </div>
+        <div class="flex items-center justify-center">
+          <button type="submit"
+            class="border-white border hover:bg-white hover:text-red-600 hover:border-red-600 transition-colors duration-200 text-white font-bold py-2 px-4 rounded-xl focus:outline-none focus:shadow-outline">
+            Log in <i class="fa-solid fa-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+      <hr class="my-3">
+      <div class="text font-medium mt-2 text-center">
+        Not logged in? <a routerLink="/signup" class="text-yellow hover:underline">Create an account</a>
+      </div>
+    </div>
+  </div>
+</div>
